@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Marks Form{% endblock %}
+{% block content %}
+
+<body>
+    <div class="row">
+        <a href="{{ url_for('register_student') }}"><button class="btn my-2 mx-2 btn-primary">Back</button></a>
+    </div>
+    <div class="org-name">
+        <h2>Marks</h2>
+    </div>
+    <form class="from" method="POST" action="" enctype="multipart/form-data">
+        <div class="card">
+            <div class="container my-3">
+                <div class="row my-1"><label for="marks" class="form-label">Hindi:</label>
+                    <input class="form-control" type="number" name="hindi" id="hindi" placeholder="Enter Hindi Marks">
+                </div>
+                <div class="row my-1"><label for="marks" class="form-label">English:</label>
+                    <input class="form-control" type="number" name="english" id="english"
+                        placeholder="Enter English Marks">
+                </div>
+                <div class="row my-1"><label for="marks" class="form-label">Math:</label>
+                    <input class="form-control" type="number" name="math" id="math" placeholder="Enter Math Marks">
+                </div>
+
+                <br>
+                <div class="row my-1"><label for="marks" class="form-label">Total:</label>
+                    <input class="form-control" type="number" name="total" id="total" placeholder="Enter total Marks">
+                </div>
+                <div class="row my-1">
+                    <label for="formFile" class="form-label">Answer Sheet:</label>
+                    <input class="form-control" type="file" name="ans_key" id="formFile">
+                </div>
+
+                <br>
+                <input type="submit" name="button" class="btn btn-primary" value="submit">
+
+            </div>
+
+        </div>
+
+    </form>
+</body>
+
+{% endblock content %}

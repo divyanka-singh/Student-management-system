@@ -1,0 +1,341 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Details{% endblock %}
+{% block content %}
+
+<body class="bg-nav">
+     <div class="row">
+        <a href="{{ url_for('student_list') }}"><button class="btn my-2 mx-2 btn-primary">Back</button></a>
+    </div>
+
+    <div class="container">
+        <form class="form">
+            <div class="org-name">
+                <h2>Student's Detail:</h2>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">How did you come to know about WES?</label>
+                    <span class="input-group-text" id="basic-addon1">{{ student.know_about_wes}}</span>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">Why do you want to join WES over other
+                        institutes?</label>
+                    <span class="input-group-text" id="basic-addon1">{{ student.why_join_wes}}</span>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="formFile" class="form-label">Color Passport Photograph</label>
+
+                    <span><img src="{{photo_url}}" alt="Student photo"  width="80" 
+     height="100" >
+                    </span>
+
+                </div>
+            </div>
+
+            <br>
+            <hr>
+
+            <div class=" row">
+                        <div class="sub_det">
+                            <h4>Student's Details</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="first-name" class="form-label">First Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.first_name}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="middle-name" class="form-label">Middle Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.middle_name}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="last-name" class="form-label">Last Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.last_name}}</span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="inputEmail4" class="form-label">Email:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.student_email}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="mobileNumber">Mobile Number:</label>
+                                <span class="input-group-text" id="basic-addon1">{{ student.student_mob_no}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="dateOfBirth" class="form-label">Date of birth:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.date_of_birth}}</span>
+                        </div>
+                        <div class="col">
+                            <label for="gender">Gender:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.gender}}</span>
+                        </div>
+                </div>
+                <br>
+                <hr>
+                <div class="row">
+                    <div class="sub_det">
+                        <h4>Father's Details</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="first-name" class="form-label">First Name:</label>
+                        <span class="input-group-text" id="basic-addon1">{{ student.father_first_name}}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="middle-name" class="form-label">Middle Name:</label>
+                        <span class="input-group-text" id="basic-addon1">{{ student.father_middle_name}}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="last-name" class="form-label">Last Name:</label>
+                        <span class="input-group-text" id="basic-addon1">{{ student.father_last_name}}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fatherProfession" class="form-label">Profession:</label>
+                        <span class="input-group-text" id="basic-addon1">{{ student.father_profession}}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputEmail4" class="form-label">Email:</label>
+                        <span class="input-group-text" id="basic-addon1">{{ student.father_email}}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="mobileNumber">Mobile Number:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.father_mob_no}}</span>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="sub_det">
+                            <h4>Mother's Details</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="first-name" class="form-label">First Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.mother_first_name}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="middle-name" class="form-label">Middle Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.mother_middle_name}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="last-name" class="form-label">Last Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.mother_last_name}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="motherProfession" class="form-label">Profession:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.mother_profession}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputEmail4" class="form-label">Email:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.mother_email}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="mobileNumber">Mobile Number:</label>
+                                <span class="input-group-text" id="basic-addon1">{{ student.mother_mob_no}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+
+                    <div class="row">
+                        <div class="sub_det">
+                            <h4>Guardian's Details</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="first-name" class="form-label">First Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.guardian_first_name}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="middle-name" class="form-label">Middle Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.guardian_middle_name}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="last-name" class="form-label">Last Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.guardian_last_name}}</span>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <label for="guardianProfession" class="form-label">Profession:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.guardian_profession}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputEmail4" class="form-label">Email:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.guardian_email}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="mobileNumber">Mobile Number:</label>
+                                <span class="input-group-text" id="basic-addon1">{{ student.guardian_mob_no}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="sub_det">
+                            <h4>Address for correspondence</h4>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="Address" class="form-label">Address:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.correspondence_address}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputCity" class="form-label">City:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.correspondence_city}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputState" class="form-label">State:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.correspondence_state}}</span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="inputZip" class="form-label">Zip:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.correspondence_pin_code}}</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="sub_det">
+                            <h4>Permanent Address</h4>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="Address" class="form-label">Address:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.permanent_address}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputCity" class="form-label">City:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.permanent_city}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputState" class="form-label">State:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.permanent_state}}</span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="inputZip" class="form-label">Zip:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.permanent_pin_code}}</span>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="sub_det">
+                            <h4>Details of Education</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="education-type" class="form-label">Latest/Ongoing Education:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.latest_ongoing}}</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="school-name" class="form-label">School/College Name:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.school_name}}</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="class-batch" class="form-label">Class/Course/Batch:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.class_batch}}</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="start-year" class="form-label">Start Year:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.start_year}}</span>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="mb-3">
+                        <div class="sub_det">
+                            <h4>Enclosures</h4>
+                            <span class="input-group-text" id="basic-addon1">{{ student.enclosures}}</span>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="sub_det">
+                            <h4>Some Extra details of Student</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="place">Place:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.student_place}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="date">Date:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.student_date}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="formFile" class="form-label">Signature:</label>
+                            <span><img src="{{stu_sign_url}}" alt="Signature"  width="80" height="100" >
+                            </span>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="sub_det">
+                            <h4>Some Extra details of Parent/ guardian</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="place">Place:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.parent_place}}</span>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <label for="date">Date:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.parent_date}}</span>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <label for="formFile" class="form-label">Signature:</label>
+                            <span><img src="{{par_sign_url}}" alt="Signature"  width="80" height="100" >
+                            </span>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="sub_det">
+                            <h4>For Office Use Only</h4>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="formNo" class="form-label">Form No:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.form_number}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="date" class="form-label">Date:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.date}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="regNo" class="form-label">Reg No:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.reg_number}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="course" class="form-label">Course:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.course}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="batch" class="form-label">Batch:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.batch}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="startDate" class="form-label">Start Date:</label>
+                            <span class="input-group-text" id="basic-addon1">{{ student.start_date}}</span>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+        </form>
+        <br>
+    </div>
+
+</body>
+
+{% endblock content %}

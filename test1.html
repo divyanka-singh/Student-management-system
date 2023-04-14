@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}test{% endblock %}
+{% block content %}
+
+<body class="bg-nav">
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <script>
+    alert("{{ messages[0] }}");
+  </script>
+  {% endif %}
+  {% endwith %}
+  <!-- <h1>7to12</h1> -->
+  <!-- <h1>Test page</h1> -->
+
+ <div class="row">
+        <a href="{{ url_for('page') }}"><button class="btn my-2 mx-2 btn-primary noPrint">Back</button></a>
+  <div class="container">
+    <div class=" org-name">
+      <div>
+        <h3>AGE 7 TO 12 YEAR </h3><button class="noPrint" onclick="window.print()" style="float: center;">Print
+        </button>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <!-- <div></div> -->
+      <div class="container col-md-8 bg-light">
+        <div class="c26 doc-content">
+          <br><br>
+
+          <div class="container mx-5">
+            <div class="details">
+              <div class="row">
+                <div class="col-md-6"><span class="input-text" id="basic-addon1">Name: {{
+                    registration_data.name}}</span></div>
+                <div class="col-md-6"><span class="input-text" id="basic-addon1">Class: {{ registration_data.class_name
+                    }}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"><span class="input-text" id="basic-addon1">Father's Name:
+                    {{registration_data.father_name }}</span></div>
+                <div class="col-md-6"><span class="input-text" id="basic-addon1">Mother's Name: {{
+                    registration_data.mother_name }}</span></div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <strong>
+              <ol class="c5 lst-kix_list_31-0 start" start="1">
+                <li class="c7 c21 li-bullet-0"><span class="c3">Create a meaning full word</span></li>
+              </ol>
+            </strong>
+            <p class="c7 c24"><span class="c3">Example among – MANGO &nbsp; &nbsp;</span></p>
+            <p class="c7 c24"><span class="c8">&nbsp;OSCOLH &nbsp;= &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+            <p class="c7 c14 c24"><span class="c3"></span></p>
+            <strong>
+              <ol class="c5 lst-kix_list_31-0" start="2">
+                <li class="c19 li-bullet-0"><span class="c3">5 sentence of any two topic </span></li>
+              </ol>
+            </strong>
+            <ul class="c5 lst-kix_list_32-0 start">
+              <li class="c9 li-bullet-1"><span class="c3">Cow </span></li>
+              <li class="c9 li-bullet-1"><span class="c3">Your school </span></li>
+              <li class="c9 li-bullet-1"><span class="c3">Diwali </span></li>
+              <li class="c9 li-bullet-1"><span class="c3">Computer </span></li>
+            </ul>
+            <strong>
+              <ol class="c5 lst-kix_list_31-0" start="3">
+                <li class="c19 li-bullet-0"><span class="c3">Five vegetable name </span></li>
+                <li class="c19 li-bullet-0"><span class="c3">Give your introduction </span></li>
+                <li class="c19 li-bullet-0"><span class="c3">Give opposite words following words-</span></li>
+              </ol>
+            </strong>
+            <ul class="c5 lst-kix_list_33-0 start">
+              <li class="c6 li-bullet-1"><span class="c3">Beautiful</span></li>
+              <li class="c6 li-bullet-1"><span class="c3">Come </span></li>
+              <li class="c6 li-bullet-1"><span class="c3">Dark</span></li>
+              <li class="c6 li-bullet-1"><span class="c3">Top</span></li>
+              <li class="c4 li-bullet-1"><span class="c3">Sweet</span></li>
+            </ul>
+            <strong>
+              <p class="c7"><span class="c20">Maths </span></p>
+            </strong>
+            <p class="c7"><span class="c17">245 +318 &nbsp;</span></p>
+            <p class="c7"><span class="c17">518-306</span></p>
+            <p class="c7"><span class="c17">32 * 3 &nbsp; &nbsp; &nbsp;</span></p>
+            <p class="c7"><span class="c17">562 % 20</span></p>
+            <strong>
+              <p class="c7"><span class="c15">Hindi</span></p>
+            </strong>
+            <ol class="c5 lst-kix_list_34-1 start" start="1">
+              <li class="c12 li-bullet-1"><span class="c1">अपने स्कूल के बारे में लिखें</span><span class="c10">&nbsp;
+                  (</span><span class="c1">5 वाक्य</span><span class="c10">&nbsp;)</span></li>
+              <li class="c12 li-bullet-1"><span class="c1">कोई कहानी लिखिए अपने किताब से</span><span
+                  class="c10">&nbsp;</span>
+              </li>
+              <li class="c12 li-bullet-1"><span class="c1">कोई कविता लिखिए अपनी किताब से</span></li>
+              <li class="c12 li-bullet-1"><span class="c1">शेर और चूहे की कहानी लिखिए</span></li>
+              <li class="c12 li-bullet-1"><span class="c1">समान अर्थ वाले शब्द लिखिए</span><span
+                  class="c10">&nbsp;-</span>
+              </li>
+            </ol>
+            <ul class="c5 lst-kix_list_34-2 start">
+              <li class="c18 c22 li-bullet-1"><span class="c1">जल</span><span class="c10">, </span><span
+                  class="c1">हवा</span><span class="c10">, </span><span class="c1">पानी</span><span class="c10">,
+                </span><span class="c1">रात</span></li>
+            </ul>
+            <p class="c14 c18"><span class="c10"></span></p>
+            <p class="c18 c14"><span class="c10"></span></p>
+            <p class="c14 c23"><span class="c10"></span></p>
+            <p class="c7 c14"><span class="c17"></span></p>
+            <p class="c11"><span class="c20"></span></p>
+            <p class="c7 c14 c25"><span class="c20"></span></p>
+          </div>
+          <br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock content %}

@@ -1,0 +1,44 @@
+/* .bg-nav { */
+/* background: #046580; */
+/* fallback for old browsers */
+/* background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0); */
+/* Chrome 10-25, Safari 5.1-6 */
+/* background: linear-gradient(to right, #6dd5ed, #2193b0); */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* } */
+
+.org-name {
+    text-align: center;
+}
+
+.mt-50 {
+    margin-top: 100px;
+}
+
+.info {
+    text-align: center;
+}
+
+.card {
+    max-width: 500px;
+    margin: 0 auto;
+    /* padding: 20px; */
+    border: 1px solid #050405;
+    border-radius: 5px;
+    box-shadow: 3px 4px 7px 2px;
+}
+
+button[type="submit"] {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@media print {
+    .noPrint {
+        display: none;
+    }
+}

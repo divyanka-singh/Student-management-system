@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}test{% endblock %}
+{% block content %}
+
+<body class="bg-nav">
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <script>
+    alert("{{ messages[0] }}");
+  </script>
+  {% endif %}
+  {% endwith %}
+   <div class="row">
+        <a href="{{ url_for('page') }}"><button class="btn my-2 mx-2 btn-primary">Back</button></a>
+   <h1>18to22</h1>
+   {% endblock content %}

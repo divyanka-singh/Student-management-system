@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Registration Form{% endblock %}
+
+
+{% block content %}
+
+<body class="bg-nav">
+    <div class="col-md-12 org-name">
+        <div>
+            <h1>Wazir Education Society</h1>
+        </div>
+        <br>
+        <div>
+            <p>145 Ward No 15, Micheal Chock, Dhanpuri, Madhya Pradesh 484114, India Mob +91 70892 45919
+                wazireducationsociety@gmail.com</p>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+
+        <!-- <br> -->
+        <div class="card">
+
+            <div class="card-body">
+                <form class="form" method="POST" action="/registration">
+                    <div class="info">
+                        <h2>Registration Form</h2>
+                    </div>
+                    <hr>
+
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required="required">
+
+                    <label for="name" class="form-label">Father's Name:</label>
+                    <input type="text" class="form-control" id="F_name" name="F_name" required="required">
+
+                    <label for="name" class="form-label">Mother's Name:</label>
+                    <input type="text" class="form-control" id="M_name" name="M_name" required="required">
+
+                    <label for="class" class="form-label">Class:</label>
+                    <input type="text" class="form-control" id="class" name="class">
+                    
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="eml">
+
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" name="mbl" class="form-control" id="mobileNumber"
+                                placeholder="Enter mobile number" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid 10-digit mobile number.
+                        </div>
+                    </div>
+
+                    <label for="dateOfBirth" class="form-label">Age:</label>
+                    <input type="number" name="dob" class="form-control" id="dateOfBirth" required>
+
+                    <label for="gender">Gender:</label>
+                    <div class="radio-buttons">
+                        <input type="radio" id="male" name="gender" value="male" checked>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>
+                    </div><br>
+
+                    <input type="submit" name="button" class="btn btn-primary" value="submit">
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+</body>
+{% endblock content %}
+
+
+
+
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+
+</html>

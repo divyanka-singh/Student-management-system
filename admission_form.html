@@ -1,0 +1,550 @@
+{% extends 'base.html' %}
+{% block title %}Admission Form{% endblock %}
+{% block content %}
+
+<body class="bg-nav">
+    <div class="col-md-12 org-name">
+        <div>
+            <h1>Wazir Education Society</h1>
+        </div>
+        <br>
+        <div>
+            <p>145 Ward No 15, Micheal Chock, Dhanpuri, Madhya Pradesh 484114, India Mob +91 70892 45919
+                wazireducationsociety@gmail.com</p>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    <div class="container">
+        <form class="form" method="POST" action="" enctype="multipart/form-data">
+            <div class="org-name">
+                <h2>Admission Form</h2>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">How did you come to know about WES?</label>
+                    <select id="inputState" name="about_WES" class="form-select" required="required">
+                        <option selected>Choose...</option>
+                        <option value="Friends/Family">Friends/Family</option>
+                        <option value="Banner/Poster">Banner/Poster</option>
+                        <option value="rochure/Pamphlet">Brochure/Pamphlet</option>
+                        <option value="Internet (Facebook/Insta)">Internet (Facebook/Insta)</option>
+                        <option value="Other (If any)">Other (If any)</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">Why do you want to join WES over other
+                        institutes?</label>
+                    <div class="form-floating">
+                        <textarea class="form-control" name="joining_reasons" placeholder="Leave a comment here"
+                            id="floatingTextarea2" required="required" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">List up to 5 reasons</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="formFile" class="form-label">Color Passport Photograph</label>
+                    <input class="form-control" name="Photo" type="file" accept="image/*" id="formFile"
+                        required="required">
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Student's Details</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="first-name" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" name="first-name" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="middle-name" class="form-label">Middle Name:</label>
+                    <input type="text" class="form-control" id="middle-name" name="middle-name">
+                </div>
+                <div class="col-md-4">
+                    <label for="last-name" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="last-name" name="last-name">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="eml">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" name="mbl" class="form-control" id="mobileNumber"
+                                placeholder="Enter mobile number" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid 10-digit mobile number.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="dateOfBirth" class="form-label">Date of birth:</label>
+                    <input type="date" name="dob" class="form-control" id="dateOfBirth" required>
+                </div>
+                <div class="col">
+                    <label for="gender">Gender:</label>
+                    <div class="radio-buttons">
+                        <input type="radio" id="male" name="gender" value="male" checked>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Father's Details</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="first-name" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" name="F_fname" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="middle-name" class="form-label">Middle Name:</label>
+                    <input type="text" class="form-control" id="middle-name" name="F_mname">
+                </div>
+                <div class="col-md-4">
+                    <label for="last-name" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="last-name" name="F_lname">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="fatherProfession" class="form-label">Profession:</label>
+                    <input type="text" class="form-control" id="fatherProfession" name="F_pfn" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="F_mail">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" name="F_num" class="form-control" id="mobileNumber"
+                                placeholder="Enter mobile number" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid 10-digit mobile number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Mother's Details</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="first-name" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" name="M_fname" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="middle-name" class="form-label">Middle Name:</label>
+                    <input type="text" class="form-control" id="middle-name" name="M_mname">
+                </div>
+                <div class="col-md-4">
+                    <label for="last-name" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="last-name" name="M_lname">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="motherProfession" class="form-label">Profession:</label>
+                    <input type="text" class="form-control" id="motherProfession" name="M_pfn" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="M_mail">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" name="M_num" class="form-control" id="mobileNumber"
+                                placeholder="Enter mobile number" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid 10-digit mobile number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Guardian's Details</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="first-name" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" name="G_fname">
+                </div>
+                <div class="col-md-4">
+                    <label for="middle-name" class="form-label">Middle Name:</label>
+                    <input type="text" class="form-control" id="middle-name" name="G_mname">
+                </div>
+                <div class="col-md-4">
+                    <label for="last-name" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="last-name" name="G_lname">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="guardianProfession" class="form-label">Profession:</label>
+                    <input type="text" class="form-control" id="fguardianProfession" name="G_pfn">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="G_mail">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" name="G_num" class="form-control" id="mobileNumber"
+                                placeholder="Enter mobile number" pattern="[0-9]{10}">
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid 10-digit mobile number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Address for correspondence</h4>
+                </div>
+                <div class="col-md-12">
+                    <label for="Address" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+                        name="C_add">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">City:</label>
+                    <input type="text" class="form-control" id="inputCity" Name="C_city">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">State:</label>
+                    <input type="text" class="form-control" id="inputState" Name="C_state">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputZip" class="form-label">Zip:</label>
+                    <input type="text" class="form-control" id="inputZip" name="C_zip">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Permanent Address</h4>
+                </div>
+                <div class="col-md-12">
+                    <label for="Address" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+                        name="P_add">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">City:</label>
+                    <input type="text" class="form-control" id="inputCity" name="P_city">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">State:</label>
+                    <input type="text" class="form-control" id="inputState" name="P_state">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputZip" class="form-label">Zip:</label>
+                    <input type="text" class="form-control" id="inputZip" name="P_zip">
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Details of Education</h4>
+                </div>
+                <div class="col-md-6">
+                    <label for="education-type" class="form-label">Latest/Ongoing Education:</label>
+                    <select class="form-select" id="education-type" name="education-type">
+                        <option selected>Choose...</option>
+                        <option value="ongoing">Ongoing</option>
+                        <option value="Latest">Latest</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="school-name" class="form-label">School/College Name:</label>
+                    <input type="text" class="form-control" id="school-name" name="school-name">
+
+                </div>
+
+                <div class="col-md-6">
+                    <label for="class-batch" class="form-label">Class/Course/Batch:</label>
+                    <input type="text" class="form-control" id="class-batch" name="class-batch">
+
+                </div>
+
+                <div class="col-md-6">
+                    <label for="start-year" class="form-label">Start Year:</label>
+                    <input type="text" class="form-control" id="start-year" name="start-year">
+
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="mb-3">
+                <div class="sub_det">
+                    <h4>Enclosures</h4>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Photo" id="photo" name="enclosures">
+                    <label class="form-check-label" for="photo">
+                        Photo:
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="SSC Mark Sheet" id="ssc" name="enclosures">
+                    <label class="form-check-label" for="ssc">
+                        SSC Mark Sheet:
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="HSC Mark Sheet" id="hsc" name="enclosures">
+                    <label class="form-check-label" for="hsc">
+                        HSC Mark Sheet:
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Aadhar Card" id="aadhar" name="enclosures">
+                    <label class="form-check-label" for="aadhar">
+                        Aadhar Card:
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Other ID Card" id="other" name="enclosures">
+                    <label class="form-check-label" for="other">
+                        Other ID Card:
+                    </label>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Some Extra details of Student</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="place">Place:</label>
+                    <input type="text" class="form-control" id="place" name="S_place">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-control" id="date" name="S_date">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="formFile" class="form-label">Signature:</label>
+                    <input class="form-control" type="file" id="formFile" name="S_sign">
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Some Extra details of Parent/ guardian</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="place">Place:</label>
+                    <input type="text" class="form-control" id="place" name="P_place">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-control" id="date" name="P_date">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="formFile" class="form-label">Signature:</label>
+                    <input class="form-control" type="file" id="formFile" name="P_sign">
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <div class="sub_det">
+                    <h4>For Office Use Only</h4>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="formNo" class="form-label">Form No:</label>
+                    <input type="text" class="form-control" id="formNo" name="form_no">
+                </div>
+                <div class="col-md-4">
+                    <label for="date" class="form-label">Date:</label>
+                    <input type="date" class="form-control" id="date" name="dt">
+                </div>
+                <div class="col-md-4">
+                    <label for="regNo" class="form-label">Reg No:</label>
+                    <input type="text" class="form-control" id="regNo" name="reg_no">
+                </div>
+                <div class="col-md-4">
+                    <label for="course" class="form-label">Course:</label>
+                    <input type="text" class="form-control" id="course" name="course">
+                </div>
+                <div class="col-md-4">
+                    <label for="batch" class="form-label">Batch:</label>
+                    <!-- <input type="text" class="form-control" id="batch" name="batch">  -->
+                    <select id="inputState" name="batch" class="form-select" required="required">
+                        <option selected>Choose...</option>
+                        <option value="Morning Junior Batch">Morning Junior Batch</option>
+                        <option value="Evening Junior Batch">Evening Junior Batch</option>
+                        <option value="Evening Lab1">Evening Lab1</option>
+                        <option value="Evening Lab2">Evening Lab2</option>
+                        <option value="Morning Senior Batch">Morning Senior Batch</option>
+                        <option value="Evening Senior Batch">Evening Senior Batch</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="startDate" class="form-label">Start Date:</label>
+                    <input type="date" class="form-control" id="startDate" name="start_dt">
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="col-md-12">
+                <h1>Terms and Conditions of Wazir Education Society also known as WES or Institute:</h1>
+                <hr>
+
+
+                <p> 1. I undertake that it would be obligatory on my part to participate in all academic,
+                    co-curricular, and extracurricular
+                    practices inclusive of research, training, industrial visits, seminar, study tours,
+                    placements
+                    and other activities in our outside the Campus, organized/arranged by WES of the fee and
+                    charges
+                    prescribed for the
+                    purpose or otherwise as deemed fit by the WES from time to time.</p>
+
+                <p> 2. I shall maintain a minimum of 90% Attendance in both Theory and Practical in all subjects
+                    and
+                    submit all Assignments,
+                    projects, and portfolios in time. If I am unable to comply with these norms
+                    I understand that I shall not be allowed to attend the class and/or be part of the
+                    evaluation
+                    process nor remain
+                    eligible to receive the course completion certificate.</p>
+
+                <p>3. In Case I am unable to maintain regular attendance then I am aware that my parents may be
+                    informed by email or phone
+                    regarding my absenteeism.</p>
+
+                <p>4. Passing all Tests and Examinations is mandatory to get a Certificate. Students have to
+                    submit
+                    a leave application
+                    giving valid reasons for absence from the classes to the concerned teacher</p>
+
+                <p>5. I shall ensure that my absence from classes for more than 10 days without prior
+                    information
+                    shall lead to
+                    cancellation of the admission and would attract re-admission formalities
+                    as may be decided on a case-to-case without any refund of fees.</p>
+
+                <p>6. I shall adhere to the prescribed Dress Code in the Institute and display my ID card at all
+                    times on the campus (if
+                    required).</p>
+
+                <p>7. I shall comply with the rules and regulations prescribed for the usage of Institute
+                    facilities and infrastructure
+                    viz. Library, Computer Lab, Workshop, etc.</p>
+
+                <p>8. I shall undertake to inform the changes in the Contact number or Address immediately to
+                    the
+                    Student Counselor
+                    /Reception Counter.</p>
+
+                <p>9. I shall not indulge in any unsocial, criminal or political activity, which does not
+                    conform
+                    to the rules and
+                    regulations of the Institute.</p>
+                <p>10. I shall refrain from the consumption of all tobacco products, alcohol, or chewing of
+                    Gutkha,
+                    inside and within 100
+                    yards of the Institute.</p>
+
+                <p>11. Understand that ragging in any form is strictly prohibited in accordance, with the
+                    directions of the Honorable
+                    Supreme Court of India,
+                    I shall ensure that if I am found indulging in any kind of ragging the Institute may
+                    initiate
+                    prescribed legal action
+                    against me or I may be rusticated.</p>
+
+                <p>12. I shall comply with Institute policies regarding usage of lab/personal laptops on the
+                    Institute premises and refrain
+                    from installing using
+                    or copying any pirated software on personal laptops or Institute computers while in the
+                    Institute network.</p>
+
+                <p>13. I shall ensure thorough compliance with the Software License agreement by not using a pen
+                    drive in the Institute. As
+                    per Institute policy, I shall access my data through Google Drive, Dropbox or email.</p>
+
+                <hr>
+
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+            <br>
+        </form>
+        <br>
+    </div>
+</body>
+{% endblock content %}
+
+</html>

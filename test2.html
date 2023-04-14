@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}test{% endblock %}
+{% block content %}
+
+<body class="bg-nav">
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <script>
+    alert("{{ messages[0] }}");
+  </script>
+  {% endif %}
+  {% endwith %}
+   <div class="row">
+        <a href="{{ url_for('page') }}"><button class="btn my-2 mx-2 btn-primary">Back</button></a>
+  <div class="container">
+    <div class=" org-name">
+      <div>
+        <h3>AGE 13 TO 18 YEAR </h3><button class="noPrint" onclick="window.print()" style="float: center;">Print
+        </button>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <!-- <div></div> -->
+      <div class="container col-md-8 bg-light">
+        <div class="c26 doc-content">
+          <br><br>
+
+          <div class="container mx-5">
+            <div class="details">
+              <div class="row">
+                <div class="col-md-6"><span class="input-text" id="basic-addon1">Name: {{
+                    registration_data.name}}</span></div>
+                <div class="col-md-6"><span class="input-text" id="basic-addon1">Class: {{ registration_data.class_name
+                    }}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"><span class="input-text" id="basic-addon1">Father's Name:
+                    {{registration_data.father_name }}</span></div>
+                <div class="col-md-6"><span class="input-text" id="basic-addon1">Mother's Name: {{
+                    registration_data.mother_name }}</span></div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <strong>
+              <p class="c4"><span class="c2">English</span></p>
+            </strong>
+            <ol class="c1 lst-kix_list_1-0 start" start="1">
+              <li class="c9 li-bullet-0"><span class="c5">What </span><span class="c10">is a computer</span><span
+                  class="c5">?</span></li>
+              <li class="c9 li-bullet-0"><span class="c5">Write the essay any one &ndash; </span></li>
+              <ul class="c1 lst-kix_list_2-0 start" start="1">
+                <li class="c6 li-bullet-0"><span class="c5">Diwali</span></li>
+                <li class="c6 li-bullet-0"><span class="c5">Cow</span></li>
+                <li class="c6 li-bullet-0"><span class="c5">School</span></li>
+              </ul>
+            </ol>
+
+            <ol class="c1 lst-kix_list_1-0" start="3">
+              <li class="c9 li-bullet-0"><span class="c5">Who is the first president of India?</span></li>
+              <li class="c3 li-bullet-0"><span class="c5">Who is the father of our nation?</span></li>
+            </ol>
+            <strong>
+              <p class="c4"><span class="c2">Hindi</span></p>
+            </strong>
+            <ol class="c1 lst-kix_list_3-0 start" start="1">
+              <li class="c9 li-bullet-0"><span class="c10 c11">&#2349;&#2366;&#2352;&#2340; &#2325;&#2366;
+                  &#2360;&#2348;&#2360;&#2375; &#2348;&#2337;&#2364;&#2366; &#2352;&#2366;&#2332;&#2381;&#2351;
+                  &#2325;&#2380;&#2344; &#2360;&#2366; &#2361;&#2376;?</span></li>
+              <li class="c9 li-bullet-0"><span class="c0">&#2357;&#2367;&#2358;&#2381;&#2357;</span><span
+                  class="c5">&nbsp;</span><span
+                  class="c0">&#2346;&#2352;&#2381;&#2351;&#2366;&#2357;&#2352;&#2339;</span><span
+                  class="c5">&nbsp;</span><span class="c0">&#2342;&#2367;&#2357;&#2360;</span><span
+                  class="c5">&nbsp;</span><span class="c0">&#2325;&#2348;</span><span class="c5">&nbsp;</span><span
+                  class="c0">&#2350;&#2344;&#2366;&#2351;&#2366;</span><span class="c5">&nbsp;</span><span
+                  class="c0">&#2332;&#2366;&#2340;&#2366;</span><span class="c5">&nbsp;</span><span
+                  class="c0">&#2361;&#2376;?</span></li>
+              <li class="c3 li-bullet-0"><span class="c0">&#2354;&#2377;&#2325;</span><span
+                  class="c5">&nbsp;</span><span class="c0">&#2337;&#2366;&#2313;&#2344;</span><span
+                  class="c5">&nbsp;</span><span class="c0">&#2325;&#2348; &#2360;&#2375; &#2325;&#2348;
+                  &#2340;&#2325;</span><span class="c5">&nbsp;</span><span class="c0">&#2354;&#2327;&#2366;
+                  &#2341;&#2366;?</span></li>
+            </ol>
+            <strong>
+              <p class="c4"><span class="c2">Math </span></p>
+            </strong>
+            <ol class="c1 lst-kix_list_6-0 start" start="1">
+              <li class="c9 li-bullet-0"><span class="c5">Write tables - 12 to 20 </span></li>
+              <li class="c9 li-bullet-0"><span class="c5">Write roman number &ndash; 1 to 20</span></li>
+              <li class="c9 li-bullet-0"><span class="c5">Name of the symbol /_\</span></li>
+              <li class="c3 li-bullet-0"><span class="c5">Division )5689 &nbsp; &nbsp; )8206</span></li>
+            </ol>
+          </div>
+          <br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock content %}

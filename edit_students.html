@@ -1,0 +1,610 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Details{% endblock %}
+{% block content %}
+
+<body class="bg-nav">
+
+    <div class="row">
+        <a href="{{ url_for('student_list') }}"><button class="btn my-2 mx-2 btn-primary">Back</button></a>
+    </div>
+    <div class="col-md-12 org-name">
+        <div>
+            <h1>Wazir Education Society</h1>
+        </div>
+        <br>
+        <div>
+            <p>145 Ward No 15, Micheal Chock, Dhanpuri, Madhya Pradesh 484114, India Mob +91 70892 45919
+                wazireducationsociety@gmail.com</p>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    <div class="container">
+        <form class="form" method="POST" action="{{url_for('edit_students', s_id = student.s_id)}}" enctype="multipart/form-data">
+            <div class="org-name">
+                <h2>Admission Form</h2>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">How did you come to know about WES?</label>
+                    <select id="inputState" name="about_WES" class="form-select" required="required">
+                        <option selected>Choose...</option>
+                        {% if student.know_about_wes=='Friends/Family' %}
+                        <option value="Friends/Family" selected>Friends/Family</option>
+                        {% else %}
+                        <option value="Friends/Family">Friends/Family</option>
+                        {% endif %}
+                        {% if student.know_about_wes=="Banner/Poster" %}
+                        <option value="Banner/Poster" selected>Banner/Poster</option>
+                        {% else %}
+                        <option value="Banner/Poster">Banner/Poster</option>
+                        {% endif %}
+                        {% if student.know_about_wes=="rochure/Pamphlet" %}
+                        <option value="rochure/Pamphlet" selected>Brochure/Pamphlet</option>
+                        {% else %}
+                        <option value="rochure/Pamphlet">Brochure/Pamphlet</option>
+                        {% endif %}
+                        {% if student.know_about_wes=="Internet (Facebook/Insta)" %}
+                        <option value="Internet (Facebook/Insta)" selected>Internet (Facebook/Insta)
+                            {% else %}
+                        <option value="Internet (Facebook/Insta)">Internet (Facebook/Insta)</option>
+                        {% endif %}
+                        {% if student.know_about_wes=="Other (If any)" %}
+                        <option value="Other (If any)" selected>Other (If any)</option>
+                        {% else %}
+                        <option value="Other (If any)">Other (If any)</option>
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">Why do you want to join WES over other
+                        institutes?</label>
+                    <input type="textarea" class="form-control" name="joining_reasons"
+                        value="{{ student.why_join_wes }}" id="floatingTextarea2" required="required"
+                        placeholder="Write 5 Reason">
+
+                </div>
+                <div class="col-md-4">
+                    <label for="formFile" class="form-label">Color Passport Photograph</label>
+                    <img src="{{photo_url}}" alt="image" width="80" height="100">
+                    <!-- <input class="form-control" name="Photo" value="{{photo_url}}" type="file" accept="image/*"
+                        id="formFile" required="required"> -->
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <!---------------------- Student's Details-------------------->
+
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Student's Details</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="first-name" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" name="first-name"
+                        value="{{ student.first_name }}" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="middle-name" class="form-label">Middle Name:</label>
+                    <input type="text" class="form-control" id="middle-name" name="middle-name"
+                        value="{{ student.middle_name }}">
+                </div>
+                <div class="col-md-4">
+                    <label for="last-name" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="last-name" name="last-name"
+                        value="{{ student.last_name }}">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="eml"
+                        value="{{ student.student_email }}">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" name="mbl" value="{{ student.student_mob_no }}" class="form-control"
+                                id="mobileNumber" placeholder="Enter mobile number" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid 10-digit mobile number.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="dateOfBirth" class="form-label">Date of birth:</label>
+                    <input type="date" name="dob" value="{{ student.date_of_birth }}" class="form-control"
+                        id="dateOfBirth" required>
+                </div>
+                <div class="col">
+                    <label for="gender">Gender:</label>
+                    <div class="radio-buttons">
+                        {% if student.gender=="male" %}
+                        <input type="radio" id="male" name="gender" value="male" checked>
+                        {% else %}
+                        <input type="radio" id="male" name="gender" value="male">
+                        {% endif %}
+                        <label for="male">Male</label>
+
+                        {% if student.gender=="female" %}
+                        <input type="radio" id="female" name="gender" value="female" checked>
+                        {% else %}
+                        <input type="radio" id="female" name="gender" value="female">
+                        {% endif %}
+                        <label for="female">Female</label>
+
+                        {% if student.gender=="other" %}
+                        <input type="radio" id="other" name="gender" value="other" checked>
+                        {% else %}
+                        <input type="radio" id="other" name="gender" value="other">
+                        {% endif %}
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <!---------------------- Father's Details-------------------->
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Father's Details</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="first-name" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" name="F_fname"
+                        value="{{ student.father_first_name }}" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="middle-name" class="form-label">Middle Name:</label>
+                    <input type="text" class="form-control" id="middle-name" value="{{ student.father_middle_name }}"
+                        name="F_mname">
+                </div>
+                <div class="col-md-4">
+                    <label for="last-name" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="last-name" value="{{ student.father_last_name }}"
+                        name="F_lname">
+                </div>
+                <div class="col-md-4">
+                    <label for="fatherProfession" class="form-label">Profession:</label>
+                    <input type="text" class="form-control" id="fatherProfession" name="F_pfn"
+                        value="{{ student.father_profession }}" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail4" value="{{ student.father_email }}"
+                        name="F_mail">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" name="F_num" class="form-control" id="mobileNumber"
+                                value="{{ student.father_mob_no }}" placeholder="Enter mobile number"
+                                pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid 10-digit mobile number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <!---------------------- Mother's Details----------------- -->
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Mother's Details</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="first-name" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" value="{{ student.mother_first_name }}"
+                        name="M_fname" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="middle-name" class="form-label">Middle Name:</label>
+                    <input type="text" class="form-control" id="middle-name" value="{{ student.mother_middle_name }}"
+                        name="M_mname">
+                </div>
+                <div class="col-md-4">
+                    <label for="last-name" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="last-name" value="{{ student.mother_last_name }}"
+                        name="M_lname">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="motherProfession" class="form-label">Profession:</label>
+                    <input type="text" class="form-control" id="motherProfession" name="M_pfn"
+                        value="{{ student.mother_profession }}" required="required">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="M_mail"
+                        value="{{ student.mother_email }}">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" name="M_num" class="form-control" id="mobileNumber"
+                                value="{{ student.mother_mob_no }}" placeholder="Enter mobile number"
+                                pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid 10-digit mobile number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+
+
+            <!---------------------- Guardian's Details-------------------->
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Guardian's Details</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="first-name" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" value="{{ student.guardian_first_name }}"
+                        name="G_fname">
+                </div>
+                <div class="col-md-4">
+                    <label for="middle-name" class="form-label">Middle Name:</label>
+                    <input type="text" class="form-control" id="middle-name" value="{{ student.guardian_middle_name }}"
+                        name="G_mname">
+                </div>
+                <div class="col-md-4">
+                    <label for="last-name" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="last-name" value="{{ student.guardian_last_name }}"
+                        name="G_lname">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="guardianProfession" class="form-label">Profession:</label>
+                    <input type="text" class="form-control" value="{{ student.guardian_profession }}"
+                        id="fguardianProfession" name="G_pfn">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputEmail4" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail4" value="{{ student.guardian_email }}"
+                        name="G_mail">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" name="G_num" class="form-control" id="mobileNumber"
+                                value="{{ student.guardian_mob_no }}" placeholder="Enter mobile number"
+                                pattern="[0-9]{10}">
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid 10-digit mobile number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <!------------------------- Address for correspondence---------- -->
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Address for correspondence</h4>
+                </div>
+                <div class="col-md-12">
+                    <label for="Address" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+                        value="{{ student.correspondence_address }}" name="C_add">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">City:</label>
+                    <input type="text" class="form-control" id="inputCity" value="{{ student.correspondence_city }}"
+                        Name="C_city">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">State:</label>
+                    <input type="text" class="form-control" id="inputState" value="{{ student.correspondence_state }}"
+                        Name="C_state">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputZip" class="form-label">Zip:</label>
+                    <input type="text" class="form-control" id="inputZip" value="{{ student.correspondence_pin_code }}"
+                        name="C_zip">
+                </div>
+            </div>
+            <hr>
+
+
+            <!------------------------- Permanent Address------------------- -->
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Permanent Address</h4>
+                </div>
+                <div class="col-md-12">
+                    <label for="Address" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+                        value="{{ student.permanent_address }}" name="P_add">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">City:</label>
+                    <input type="text" class="form-control" id="inputCity" value="{{ student.permanent_city }}"
+                        name="P_city">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">State:</label>
+                    <input type="text" class="form-control" id="inputState" value="{{ student.permanent_state }}"
+                        name="P_state">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="inputZip" class="form-label">Zip:</label>
+                    <input type="text" class="form-control" id="inputZip" value="{{ student.permanent_pin_code }}"
+                        name="P_zip">
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <!--------------------- Details of Education -------------------->
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Details of Education</h4>
+                </div>
+                <div class="col-md-6">
+                    <label for="education-type" class="form-label">Latest/Ongoing Education:</label>
+                    <select class="form-select" id="education-type" name="education-type">
+                        <option selected>Choose...</option>
+                        {% if student.latest_ongoing=="ongoing" %}
+                        <option value="ongoing" selected>Ongoing</option>
+                        {% else %}
+                        <option value="ongoing">Ongoing</option>
+                        {% endif %}
+                        {% if student.latest_ongoing=="Latest" %}
+                        <option value="Latest" selected>Latest</option>
+                        {% else %}
+                        <option value="Latest">Latest</option>
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="school-name" class="form-label">School/College Name:</label>
+                    <input type="text" class="form-control" id="school-name" value="{{ student.school_name }}"
+                        name="school-name">
+
+                </div>
+
+                <div class="col-md-6">
+                    <label for="class-batch" class="form-label">Class/Course/Batch:</label>
+                    <input type="text" class="form-control" id="class-batch" value="{{ student.class_batch }}"
+                        name="class-batch">
+
+                </div>
+
+                <div class="col-md-6">
+                    <label for="start-year" class="form-label">Start Year:</label>
+                    <input type="text" class="form-control" id="start-year" value="{{ student.start_year }}"
+                        name="start-year">
+
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <!------------------------ Enclosures------------------- -->
+            <div class="mb-3">
+                <div class="sub_det">
+                    <h4>Enclosures</h4>
+                </div>
+                <div>
+                    <span class="input-group-text" id="basic-addon1">{{ student.enclosures}}</span>
+                </div>
+                <!-- <div class="form-check">
+                    {% if student.enclosures =="Photo" or student.enclosures =="SSC Mark Sheet" or student.enclosures =="HSC Mark Sheet" or student.enclosures =="Aadhar Card" or student.enclosures =="Other ID Card" %}
+                    <input class="form-check-input" type="checkbox" value="Photo" id="photo" name="enclosures" checked>
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="Photo" id="photo" name="enclosures">
+                    {% endif %}
+                    <label class="form-check-label" for="photo">
+                        Photo:
+                    </label>
+                </div>
+                <div class="form-check">
+                    {% if student.enclosures=="SSC Mark Sheet" %}
+                    <input class="form-check-input" type="checkbox" value="SSC Mark Sheet" id="ssc" name="enclosures" checked>
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="SSC Mark Sheet" id="ssc" name="enclosures">
+                    {% endif %}
+                    <label class="form-check-label" for="ssc">
+                        SSC Mark Sheet:
+                    </label>
+                </div>
+                <div class="form-check">
+                    {% if student.enclosures=="HSC Mark Sheet" %}
+                    <input class="form-check-input" type="checkbox" value="HSC Mark Sheet" id="hsc" name="enclosures" checked>
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="HSC Mark Sheet" id="hsc" name="enclosures">
+                    {% endif %}
+                    <label class="form-check-label" for="hsc">
+                        HSC Mark Sheet:
+                    </label>
+                </div>
+                <div class="form-check">
+                    {% if student.enclosures=="Aadhar Card" %}
+                    <input class="form-check-input" type="checkbox" value="Aadhar Card" id="aadhar" name="enclosures" checked>
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="Aadhar Card" id="aadhar" name="enclosures">
+                    {% endif %}
+                    <label class="form-check-label" for="aadhar">
+                        Aadhar Card:
+                    </label>
+                </div>
+                <div class="form-check">
+                    {% if student.enclosures=="Other ID Card" %}
+                    <input class="form-check-input" type="checkbox" value="Other ID Card" id="other" name="enclosures" checked>
+                    {% else %}
+                    <input class="form-check-input" type="checkbox" value="Other ID Card" id="other" name="enclosures">
+                    {% endif %}
+                    <label class="form-check-label" for="other">
+                        Other ID Card:
+                    </label>
+                </div> -->
+            </div>
+            <br>
+            <hr>
+
+
+            <!---------------------- Some Extra details of Student-------------------->
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Some Extra details of Student</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="place">Place:</label>
+                    <input type="text" class="form-control" id="place" value="{{ student.student_place }}"
+                        name="S_place">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-control" id="date" value="{{ student.student_date }}" name="S_date">
+                </div>
+
+
+                <div class="col-md-4">
+                    <img src="{{stu_sign_url}}" alt="image" width="80" height="100">
+                    <!-- <label for="formFile" class="form-label">Signature:</label>
+                    <input class="form-control" type="file" id="formFile" value="{{ student.student_signature }}"
+                        name="S_sign"> -->
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <!---------------- Some Extra details of Student ------------>
+            <div class="row">
+                <div class="sub_det">
+                    <h4>Some Extra details of Student</h4>
+                </div>
+                <div class="col-md-4">
+                    <label for="place">Place:</label>
+                    <input type="text" class="form-control" id="place" value="{{ student.parent_place }}"
+                        name="P_place">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-control" id="date" value="{{ student.parent_date }}" name="P_date">
+                </div>
+
+
+                <div class="col-md-4">
+                    <img src="{{par_sign_url}}" alt="image" width="80" height="100">
+
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <!-- ------------- For Office Use Only ---------------------->
+            <div class="row">
+                <div class="sub_det">
+                    <h4>For Office Use Only</h4>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="formNo" class="form-label">Form No:</label>
+                    <input type="text" class="form-control" id="formNo" value="{{ student.form_number }}"
+                        name="form_no">
+                </div>
+                <div class="col-md-4">
+                    <label for="date" class="form-label">Date:</label>
+                    <input type="date" class="form-control" id="date" value="{{ student.date }}" name="dt">
+                </div>
+                <div class="col-md-4">
+                    <label for="regNo" class="form-label">Reg No:</label>
+                    <input type="text" class="form-control" id="regNo" value="{{ student.reg_number }}" name="reg_no">
+                </div>
+                <div class="col-md-4">
+                    <label for="course" class="form-label">Course:</label>
+                    <input type="text" class="form-control" id="course" value="{{ student.course }}" name="course">
+                </div>
+                <div class="col-md-4">
+                    <label for="batch" class="form-label">Batch:</label>
+                    <!-- <input type="text" class="form-control" id="batch" name="batch">  -->
+                    <select id="inputState" name="batch" class="form-select" value="{{ student.batch }}"
+                        required="required">
+                        <option selected>Choose...</option>
+                        {% if student.batch=="Morning Junior Batch"%}
+                        <option value="Morning Junior Batch" selected>Morning Junior Batch</option>
+                        {% else %}
+                        <option value="Morning Junior Batch">Morning Junior Batch</option>
+                        {% endif %}
+                        {% if student.batch=="Evening Junior Batch" %}
+                        <option value="Evening Junior Batch" selected>Evening Junior Batch</option>
+                        {% else %}
+                        <option value="Evening Junior Batch">Evening Junior Batch</option>
+                        {% endif %}
+                        {% if student.batch=="Evening Lab1" %}
+                        <option value="Evening Lab1" selected>Evening Lab1</option>
+                        {% else %}
+                        <option value="Evening Lab1">Evening Lab1</option>
+                        {% endif %}
+                        {% if student.batch=="Evening Lab2" %}
+                        <option value="Evening Lab2" selected>Evening Lab2</option>
+                        {% else %}
+                        <option value="Evening Lab2">Evening Lab2</option>
+                        {% endif %}
+                        {% if student.batch == "Morning Senior Batch" %}
+                        <option value="Morning Senior Batch" selected>Morning Senior Batch</option>
+                        {% else %}
+                        <option value="Morning Senior Batch">Morning Senior Batch</option>
+                        {% endif %}
+                        {% if student.batch == "Evening Senior Batch" %}
+                        <option value="Evening Senior Batch" selected>Evening Senior Batch</option>
+                        {% else %}
+                        <option value="Evening Senior Batch">Evening Senior Batch</option>
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="startDate" class="form-label">Start Date:</label>
+                    <input type="date" class="form-control" id="startDate" value="{{ student.start_date }}"
+                        name="start_dt">
+                </div>
+            </div>
+            <br>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit" value = "Update">Submit form</button>
+            </div>
+        </form>
+        <br>
+    </div>
+
+</body>
+
+{% endblock content %}

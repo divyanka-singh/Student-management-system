@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+
+<body class="bg-nav">
+    <div class="col-md-12 org-name">
+        <div>
+            <h1>Wazir Education Society</h1>
+        </div>
+        <br>
+        <div>
+            <p>145 Ward No 15, Micheal Chock, Dhanpuri, Madhya Pradesh 484114, India Mob +91 70892 45919
+                wazireducationsociety@gmail.com</p>
+        </div>
+    </div>
+    <hr>
+    <br>
+    
+
+    <div class="container">
+         <div class="org-name">
+                 <h1>Dashboard</h1>
+            </div>
+            <br>
+        <div class="col-md-12 org-name">
+            
+                <button class="btn btn-primary"
+                    onclick="window.location.href='{{ url_for('registration') }}'">Registraton Form</button>
+            
+            <button class="btn btn-primary"
+                    onclick="window.location.href='{{ url_for('register_student') }}'">Register Students</button>
+                    <button class="btn btn-primary"
+                            onclick="window.location.href='{{ url_for('student_list') }}'">Admitted Students</button>
+        </div>
+       
+    </div>
+
+
+  
+</body>
+{% endblock content %}
